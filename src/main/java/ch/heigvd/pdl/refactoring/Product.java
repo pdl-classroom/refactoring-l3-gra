@@ -54,7 +54,7 @@ public class Product {
         return size;
     }
     public String getSizeName() {
-        return size.name();
+        return size.toString();
     }
 
     public double getPrice() {
