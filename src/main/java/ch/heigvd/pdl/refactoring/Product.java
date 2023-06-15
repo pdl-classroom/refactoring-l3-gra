@@ -7,10 +7,13 @@ public class Product {
     private String code;
 
     public enum Colors {
-        blue,
-        red,
-        yellow,
-        no_color
+        BLUE,
+        RED,
+        YELLOW,
+        NO_COLOR;
+        public String toString() {
+            return this.name().toLowerCase();
+        }
     }
 
     private final Colors color;
