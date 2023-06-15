@@ -60,6 +60,7 @@ public class OrdersWriter {
 
     private String getSizeFor(Product product) {
         switch (product.getSize()) {
+
             case 1:
                 return "XS";
             case 2:
