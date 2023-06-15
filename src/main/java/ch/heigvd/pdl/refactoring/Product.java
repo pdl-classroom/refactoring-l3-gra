@@ -22,12 +22,28 @@ public class Product {
         return code;
     }
 
-    public int getColor() {
-        return color;
+    public String getColor() {
+        switch (color) {
+            case 1:
+                return "blue";
+            case 2:
+                return "red";
+            case 3:
+                return "yellow";
+            default:
+                return "no color";
+        }
     }
 
     public int getSize() {
         return size;
+    }
+    public String getSizeName() {
+        final String[] sizes = {"XS", "S","M","L","XL","XXL"};
+
+        if (size < 1 || size - 1 > sizes.length)
+            return "Invalid Size";
+        return sizes[size - 1];
     }
 
     public double getPrice() {
@@ -37,4 +53,5 @@ public class Product {
     public String getCurrency() {
         return currency;
     }
+
 }
