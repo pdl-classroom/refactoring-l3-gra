@@ -2,7 +2,7 @@ package ch.heigvd.pdl.refactoring;
 
 public class Product {
 
-    public static final int SIZE_NOT_APPLICABLE = -1;
+
 
     private String code;
 
@@ -14,12 +14,24 @@ public class Product {
     }
 
     private final Colors color;
-    private int size;
+
+
+    public enum Sizes {
+        XS,
+        S,
+        M,
+        L,
+        XL,
+        XXL,
+        SIZE_NOT_APPLICABLE
+    }
+
+    private final Sizes size;
 
     private double price;
     private String currency;
 
-    public Product(String code, Colors color, int size, double price, String currency) {
+    public Product(String code, Colors color, Sizes size, double price, String currency) {
         this.code = code;
         this.color = color;
         this.size = size;
@@ -35,15 +47,11 @@ public class Product {
         return color.name();
     }
 
-    public int getSize() {
+    public Sizes getSize() {
         return size;
     }
     public String getSizeName() {
-        final String[] sizes = {"XS", "S","M","L","XL","XXL"};
-
-        if (size < 1 || size - 1 > sizes.length)
-            return "Invalid Size";
-        return sizes[size - 1];
+        return size.name();
     }
 
     public double getPrice() {
