@@ -47,14 +47,14 @@ public class OrdersWriterTest {
     }
 
     @Test
-    public void CheckColors() {
+    void CheckColors() {
         Product product = new Product("Pot", Product.Colors.RED, Product.Sizes.SIZE_NOT_APPLICABLE, 16.50, "SGD");
         String color = "red";
         assertEquals(color, product.getColor());
     }
 
     @Test
-    public void CheckSizes() {
+    void CheckSizes() {
         Product product = new Product("Pot", Product.Colors.RED, Product.Sizes.M, 16.50, "SGD");
         String color = "M";
         assertEquals(color, product.getSizeName());
