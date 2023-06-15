@@ -38,6 +38,13 @@ public class Product {
     public int getSize() {
         return size;
     }
+    public String getSizeName() {
+        final String[] sizes = {"XS", "S","M","L","XL","XXL"};
+
+        if (size < 1 || size - 1 > sizes.length)
+            return "Invalid Size";
+        return sizes[size - 1];
+    }
 
     public double getPrice() {
         return price;

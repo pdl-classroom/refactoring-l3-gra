@@ -31,7 +31,7 @@ public class OrdersWriter {
 
                 if (product.getSize() != Product.SIZE_NOT_APPLICABLE) {
                     sb.append("\"size\": \"");
-                    sb.append(getSizeFor(product));
+                    sb.append(product.getSizeName());
                     sb.append("\", ");
                 }
 
@@ -58,13 +58,4 @@ public class OrdersWriter {
         return sb.append("]}").toString();
     }
 
-    private String getSizeFor(Product product) {
-        final String[] sizes = {"XS", "S","M","L","XL","XXL"};
-
-        final int productSize = product.getSize();
-
-        if (productSize < 1 || productSize - 1 > sizes.length)
-            return "Invalid Size";
-        return sizes[productSize - 1];
-    }
 }
