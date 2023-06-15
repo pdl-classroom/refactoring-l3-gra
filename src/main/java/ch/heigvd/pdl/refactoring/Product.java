@@ -5,12 +5,21 @@ public class Product {
     public static final int SIZE_NOT_APPLICABLE = -1;
 
     private String code;
-    private int color;
+
+    public enum Colors {
+        blue,
+        red,
+        yellow,
+        no_color
+    }
+
+    private final Colors color;
     private int size;
+
     private double price;
     private String currency;
 
-    public Product(String code, int color, int size, double price, String currency) {
+    public Product(String code, Colors color, int size, double price, String currency) {
         this.code = code;
         this.color = color;
         this.size = size;
@@ -23,16 +32,7 @@ public class Product {
     }
 
     public String getColor() {
-        switch (color) {
-            case 1:
-                return "blue";
-            case 2:
-                return "red";
-            case 3:
-                return "yellow";
-            default:
-                return "no color";
-        }
+        return color.name();
     }
 
     public int getSize() {
