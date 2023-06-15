@@ -46,6 +46,20 @@ public class OrdersWriterTest {
         assertEquals("{\"orders\": [" + order111Json + "]}", new OrdersWriter(orders).getContents());
     }
 
+    @Test
+    public void CheckColors() {
+        Product product = new Product("Pot", Product.Colors.RED, Product.Sizes.SIZE_NOT_APPLICABLE, 16.50, "SGD");
+        String color = "red";
+        assertEquals(color, product.getColor());
+    }
+
+    @Test
+    public void CheckSizes() {
+        Product product = new Product("Pot", Product.Colors.RED, Product.Sizes.M, 16.50, "SGD");
+        String color = "M";
+        assertEquals(color, product.getSizeName());
+    }
+
     private String JsonOrder111WithProduct(String productJson) {
         return "{\"id\": 111, \"products\": [" + productJson + "]}";
     }
