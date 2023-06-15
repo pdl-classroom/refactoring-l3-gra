@@ -47,14 +47,14 @@ public class Product {
     }
 
     public String getColor() {
-        return color.name();
+        return color.toString();
     }
 
     public Sizes getSize() {
         return size;
     }
     public String getSizeName() {
-        return size.toString();
+        return size.name();
     }
 
     public double getPrice() {
