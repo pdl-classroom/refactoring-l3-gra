@@ -32,12 +32,12 @@ public class Order {
 
     public JSONObject toJson() {
         JSONObject orderJson = new JSONObject();
-        orderJson.append("id", getOrderId());
+        orderJson.put("id", getOrderId());
         JSONArray productsJson = new JSONArray();
         for (Product product: products) {
             productsJson.put(product.toJson());
         }
-        orderJson.append("products", productsJson);
+        orderJson.put("products", productsJson);
         return orderJson;
     }
 }

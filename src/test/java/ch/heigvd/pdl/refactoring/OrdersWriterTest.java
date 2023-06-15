@@ -15,35 +15,35 @@ public class OrdersWriterTest {
 
     @Test
     public void NoOrder() {
-        assertEquals("{\"orders\": []}", new OrdersWriter(new Orders()).getContents());
+        assertEquals("{\"orders\":[]}", new OrdersWriter(new Orders()).getContents());
     }
 
     @Test
     public void OneOrder() {
-        String order111 = "{\"id\": 111, \"products\": []}";
-        assertEquals("{\"orders\": [" + order111 + "]}", new OrdersWriter(orders).getContents());
+        String order111 = "{\"id\":111,\"products\":[]}";
+        assertEquals("{\"orders\":[" + order111 + "]}", new OrdersWriter(orders).getContents());
     }
 
     @Test
     public void TwoOrders() {
         orders.addOrder(new Order(222));
         String order111Json = JsonOrder111WithProduct("");
-        String order222Json = "{\"id\": 222, \"products\": []}";
-        assertEquals("{\"orders\": [" + order111Json + ", " + order222Json + "]}", new OrdersWriter(orders).getContents());
+        String order222Json = "{\"id\":222,\"products\":[]}";
+        assertEquals("{\"orders\":[" + order111Json + "," + order222Json + "]}", new OrdersWriter(orders).getContents());
     }
 
     @Test
     public void OneOrderWithOneProduct() {
         order111.addProduct(new Product("Shirt", Product.Colors.BLUE, Product.Sizes.M, 2.99, "TWD"));
-        String order111Json = JsonOrder111WithProduct("{\"code\": \"Shirt\", \"color\": \"blue\", \"size\": \"M\", \"price\": 2.99, \"currency\": \"TWD\"}");
-        assertEquals("{\"orders\": [" + order111Json + "]}", new OrdersWriter(orders).getContents());
+        String order111Json = JsonOrder111WithProduct("{\"code\":\"Shirt\",\"color\":\"blue\",\"size\":\"M\",\"price\":2.99,\"currency\":\"TWD\"}");
+        assertEquals("{\"orders\":[" + order111Json + "]}", new OrdersWriter(orders).getContents());
     }
 
     @Test
     public void OneOrderWithOneProductNoSize() {
         order111.addProduct(new Product("Pot", Product.Colors.RED, Product.Sizes.SIZE_NOT_APPLICABLE, 16.50, "SGD"));
-        String order111Json = JsonOrder111WithProduct("{\"code\": \"Pot\", \"color\": \"red\", \"price\": 16.5, \"currency\": \"SGD\"}");
-        assertEquals("{\"orders\": [" + order111Json + "]}", new OrdersWriter(orders).getContents());
+        String order111Json = JsonOrder111WithProduct("{\"code\":\"Pot\",\"color\":\"red\",\"price\":16.5,\"currency\":\"SGD\"}");
+        assertEquals("{\"orders\":[" + order111Json + "]}", new OrdersWriter(orders).getContents());
     }
 
     @Test
@@ -61,7 +61,7 @@ public class OrdersWriterTest {
     }
 
     private String JsonOrder111WithProduct(String productJson) {
-        return "{\"id\": 111, \"products\": [" + productJson + "]}";
+        return "{\"id\":111,\"products\":[" + productJson + "]}";
     }
 
 }

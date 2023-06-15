@@ -13,7 +13,7 @@ public class OrdersWriter {
     public String getContents() {
         JSONObject json = new JSONObject();
 
-        json.append("orders", orders.toJson());
+        json.put("orders", orders.toJson());
 
         return json.toString();
     }

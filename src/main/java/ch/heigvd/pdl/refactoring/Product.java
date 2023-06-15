@@ -71,14 +71,14 @@ public class Product {
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
 
-        json.append("code", code);
-        json.append("color", getColor());
-        if (getSize() != SIZE_NOT_APPLICABLE) {
-            json.append("size", getSizeName());
+        json.put("code", code);
+        json.put("color", getColor());
+        if (getSize() != Sizes.SIZE_NOT_APPLICABLE) {
+            json.put("size", getSizeName());
         }
-        json.append("price", price);
+        json.put("price", price);
 
-        json.append("currency", currency);
+        json.put("currency", currency);
 
         return json;
     }
