@@ -11,6 +11,7 @@ public class Product {
         RED,
         YELLOW,
         NO_COLOR;
+        @Override
         public String toString() {
             return this.name().toLowerCase();
         }
