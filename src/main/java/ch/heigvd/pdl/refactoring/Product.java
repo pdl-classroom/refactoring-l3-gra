@@ -1,5 +1,7 @@
 package ch.heigvd.pdl.refactoring;
 
+import org.json.JSONObject;
+
 public class Product {
 
 
@@ -66,4 +68,18 @@ public class Product {
         return currency;
     }
 
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+
+        json.put("code", code);
+        json.put("color", getColor());
+        if (getSize() != Sizes.SIZE_NOT_APPLICABLE) {
+            json.put("size", getSizeName());
+        }
+        json.put("price", price);
+
+        json.put("currency", currency);
+
+        return json;
+    }
 }

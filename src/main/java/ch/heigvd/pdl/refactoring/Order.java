@@ -1,5 +1,8 @@
 package ch.heigvd.pdl.refactoring;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,5 +28,16 @@ public class Order {
 
     public void addProduct(Product product) {
         products.add(product);
+    }
+
+    public JSONObject toJson() {
+        JSONObject orderJson = new JSONObject();
+        orderJson.put("id", getOrderId());
+        JSONArray productsJson = new JSONArray();
+        for (Product product: products) {
+            productsJson.put(product.toJson());
+        }
+        orderJson.put("products", productsJson);
+        return orderJson;
     }
 }
