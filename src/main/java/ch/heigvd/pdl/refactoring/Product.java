@@ -3,37 +3,9 @@ package ch.heigvd.pdl.refactoring;
 import org.json.JSONObject;
 
 public class Product {
-
-
-
     private String code;
-
-    public enum Colors {
-        BLUE,
-        RED,
-        YELLOW,
-        NO_COLOR;
-        @Override
-        public String toString() {
-            return this.name().toLowerCase();
-        }
-    }
-
     private final Colors color;
-
-
-    public enum Sizes {
-        XS,
-        S,
-        M,
-        L,
-        XL,
-        XXL,
-        SIZE_NOT_APPLICABLE
-    }
-
     private final Sizes size;
-
     private double price;
     private String currency;
 
