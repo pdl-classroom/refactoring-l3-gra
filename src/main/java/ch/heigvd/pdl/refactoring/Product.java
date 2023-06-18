@@ -17,6 +17,14 @@ public class Product {
         this.currency = currency;
     }
 
+    public Product(String code, Colors color, double price, String currency) {
+        this.code = code;
+        this.color = color;
+        this.size = Sizes.SIZE_NOT_APPLICABLE;
+        this.price = price;
+        this.currency = currency;
+    }
+
     public String getCode() {
         return code;
     }
